@@ -1,0 +1,167 @@
+import { React, useState} from "react";
+import styled from "styled-components";
+import {Images} from "../../assets/images/Images";
+
+/*
+  Calling Component
+  <StatusMessage setStatus={setStatus} status={status} message={message}/>
+*/
+const StatusMessage = ({setStatus, status, message}) => {
+  const msg = status === 200 || status === 201 ? "Awesome! The update was made." : (status === 500) ? "Sorry, the server can't process your request" : "Ooops..., It something went wrong. Try again";
+  const icons = status === 200 || status === 201 ? Images.valid : Images.error;
+
+  const closeMessage = () =>{
+    setStatus()
+  }
+
+  if (status === 200 || status === 201 || status === 400 || status === 500) {
+
+    // Auto close message after 10 seconds
+    setTimeout(() => {
+      setStatus('');
+    }, 10000);
+
+    return (
+      <div>
+        {/* TEST-BTN */}
+        <HandlingOverlay>
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            className="slide-in-top container"
+          >
+            {/* You can set error button by adding IMG.error for error icon */}
+            <div className="valid_btn">
+              <img src={icons} alt="Status Icon" className="valid" />
+              <span>{message ? message : msg}</span>
+            </div>
+            <img
+              className="close-btn"
+              src="https://www.svgrepo.com/show/315851/close.svg"
+              alt="c"
+              onClick={closeMessage}
+            />
+          </div>
+        </HandlingOverlay>
+      </div>
+    );
+  }
+};
+
+export default StatusMessage;
+
+const HandlingOverlay = styled.div`
+  width: 100%;
+  overflow: auto;
+  min-height: 65px;
+  position: fixed;
+  top: 74px;
+  left: 0;
+  z-index: 100;
+  box-shadow: 2px 10px 20px rgb(0 0 0 / 5%), 0px 2px 8px rgb(0 0 0 / 5%);
+  border-top: 1.5px solid #EAEAEA;
+
+  .slide-in-top {
+    position: relative;
+    background: #ffffff;
+    margin: 0px auto;
+    padding: 20px;
+    
+  .valid_btn {
+    margin: 0px auto;
+    max-width: 440px;
+    text-align: center;
+    .valid {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+  }
+
+  span {
+    margin: 0;
+    font-family: Nunito;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: -8px;
+    }
+
+    font-family: Nunito;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    @media (max-width: 700px) {
+      padding-right: 25px !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    .valid_btn {
+      max-width: 530px !important;
+      text-align: center;
+    }
+  }
+  .close-btn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 15px;
+    padding: 5px;
+    cursor: pointer;
+    right: 50px;
+    transition: 0.3s;
+    &:hover {
+      background: #f3f3f3;
+    }
+  }
+
+  @media (max-width: 488px) {
+    .close-btn {
+      top: 20px;
+      right: 20px;
+    }
+  }
+    -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+    animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  /**
+ * ----------------------------------------
+ * animation slide-in-top
+ * ----------------------------------------
+ */
+  @-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  /*  */
+`;
