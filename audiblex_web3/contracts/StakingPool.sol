@@ -1,28 +1,4 @@
-//SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.0;
-
-contract Greeter {
-    string private greeting;
-
-    constructor(string memory _greeting) {
-        greeting = _greeting;
-    }
-
-    function greet() public view returns (string memory) {
-        return greeting;
-    }
-
-    function setGreeting(string memory _greeting) public {
-        greeting = _greeting;
-    }
-
-    mapping(address => uint256) lpShare;
-
-    function getPoolBalance() public returns(uint256) {
-        return address(this).balance;
-    }
-
-
+//SPDX-License-Identifier: MIT
 
 pragma solidity^0.8.9;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -37,8 +13,6 @@ contract StakingPool is ERC20 {
     }
 
     function stake(uint256 _tokenAmount, address _content, uint256 _tokenId) public payable returns(uint256) {
-
-        data
         if(getReserve() == 0){
         // LP token issued is the exact amount of ethers deposited
         uint256 liquidity = address(this).balance;
