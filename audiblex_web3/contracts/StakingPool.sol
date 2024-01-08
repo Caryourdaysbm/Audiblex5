@@ -10,7 +10,7 @@ contract StakingPool is ERC20 {
     uint256 constant MAX_PERCENTAGE = 10000;
     
     constructor(address _tokenAddress) ERC20("Audiblex-V1", "Audi-V1") {
-        tokenAddress = IERC20(_tokenAddress);;
+        tokenAddress = IERC20(_tokenAddress);
     }
 
     function stake(uint256 _tokenAmount, address _content, uint256 _tokenId) public payable returns(uint256) {
