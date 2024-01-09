@@ -6,7 +6,7 @@ import dj from "../../assets/images/dj.png";
 import camera from "../../assets/images/camera.png";
 import Dashboard from "../../assets/images/dashboard.png";
 import Analytics from "../../assets/images/analytics.png";
-import Distribution from "../../assets/images/Distribution.png";
+import Distribution from "../../assets/images/distribution.png";
 import Upload from "../../assets/images/upload.png";
 import Monetization from "../../assets/images/monetization.png";
 import Radio from "../../assets/images/radio6.png";
