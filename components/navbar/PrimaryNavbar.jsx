@@ -49,12 +49,11 @@ const PrimaryNavbar = (props) => {
           <ul className={showMenu} id="PrimaryNavbar">
             <h2 className="on_nav">instasew</h2>
             <div className="nav__elements">
-              <Link href="">
-                <li>Login</li>
+              <Link href="/creator">
+                <li>Create</li>
               </Link>
-              <Link href="">
-                <li>Signup</li>
-              </Link>
+              
+            
             </div>
           </ul>
 
