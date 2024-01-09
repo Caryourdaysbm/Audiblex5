@@ -4,10 +4,10 @@ import React from "react";
 import Link from "next/link";
 import dj from "../assets/images/dj.png";
 import camera from "../assets/images/camera.png";
-import listen from "../assets/images/listen.png";
-import radar from "../assets/images/radar.png";
+import listen from "../assets/images/Listen.png";
+import radar from "../assets/images/Radar.png";
 import home from "../assets/images/home.png";
-import radio from "../assets/images/radio.png";
+import radio from "../assets/images/Radio.png";
 import tradebot from "../assets/images/tradebot.png";
 import Image from "next/image";
 
